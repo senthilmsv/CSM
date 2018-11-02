@@ -1,0 +1,36 @@
+<!-- <mat-toolbar color="primary">
+  <span>Site Details</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [mat-menu-trigger-for]="menu">
+    <mat-icon class="example-icon">more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item>About</button>
+  <button mat-menu-item>Contact</button>
+</mat-menu> -->
+
+<mat-card class="example-card">
+  <!-- <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Sites</mat-card-title>
+    <mat-card-subtitle>Site details</mat-card-subtitle>
+  </mat-card-header> -->
+  <mat-card-content>
+    <form class="form-center form-full-width">
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="Site name" value="myHPMG">
+      </mat-form-field>
+
+      <mat-form-field class="input-full-width">
+        <textarea matInput placeholder="Description" rows="3" ></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary"><i class="fa fa-floppy-o"></i> Save</button>
+    <button mat-raised-button color="accent"><i class="fa fa-repeat"></i> Reset</button>
+
+    
+  </mat-card-actions>
+</mat-card>

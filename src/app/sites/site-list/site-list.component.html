@@ -1,0 +1,60 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"><i class="fa fa-sitemap"></i></div>
+    <mat-card-title>Sites</mat-card-title>
+    <mat-card-subtitle>List of Sites</mat-card-subtitle>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" class="float-right" (click)="showForNew();open(content);"><i class="fa fa-floppy-o"></i>
+      Add Site</button>
+  </mat-card-header>
+  <mat-card-content>
+    <table class="table table-sm table-hover">
+      <tr *ngFor="let site of siteList">
+        <td class="pt-3">{{site.SiteName}}</td>
+        <td class="pt-3">{{site.Description}}</td>
+        <td>
+          <a class="btn">
+            <i class="fa fa-pencil-square-o" (click)="showForEdit(site);open(content);"></i>
+          </a>
+          <a class="btn text-danger" (click)="onDelete(site)">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #content let-modal class="container">
+  <div class="modal-header">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"><i class="fa fa-sitemap"></i></div>
+      <mat-card-title>Sites</mat-card-title>
+      <mat-card-subtitle>{{subTitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <div class="example-container">          
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="Site name" [(ngModel)]="selectedSite.SiteName" name="SiteName" #SiteName="ngModel"
+              required>
+          </mat-form-field>
+
+          <mat-form-field class="input-full-width">
+            <textarea matInput placeholder="Description" rows="3" [(ngModel)]="selectedSite.Description" name="Description"
+              #Description="ngModel"></textarea>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="modal-footer">
+    <button mat-raised-button color="primary" (click)="SaveAndClose()"><i class="fa fa-floppy-o"></i> Save</button>
+    <button mat-raised-button color="accent" (click)="modal.close('Close')"><i class="fa fa-close"></i> close</button>
+  </div>
+</ng-template>
